@@ -6,11 +6,20 @@ function-chaining-style input validation library for Go and Gin web framework
 
 ```go
 var (
-    firstname   = v.Form("firstname").Required().String()
-    Lastname    = v.Param("lastname").Optional().String()
-    age         = v.Query("age").Required().Int()
-    Height      = v.FormData("height").Required().Float32()
-    profilePic  = v.Multipart("profile_picture").Required().File()
+    // x-www-form-urlencoded
+    firstname = v.Form("firstname").Required().String()
+
+    // url parameter
+    Lastname = v.Param("lastname").Optional().String()
+
+    // query string
+    age = v.Query("age").Required().Int()
+
+    // form-data
+    Height = v.FormData("height").Optional().Float32()
+
+    // mutipart/form-data
+    profilePic = v.Multipart("profile_picture").Required().File()
 )
 
 // String formating (coming soon):
